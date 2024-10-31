@@ -14,10 +14,37 @@
     <link rel="stylesheet" href="./static/Montserrat-Light.ttf">
     <link rel="stylesheet" href="./static/Montserrat-Thin.ttf">
 
+
+    <style>
+        @keyframes appear {
+          from {
+            opacity: 0;
+            transform: scale(0.5); /* Shrinks and hidden initially */
+          }
+          to {
+            opacity: 1;
+            transform: scale(1); /* Fully visible and normal scale */
+          }
+        }
+        
+        .block {
+          opacity: 0;
+          transform: scale(0.5);
+          transition: opacity 0.5s ease, transform 0.5s ease; /* Ensure smooth transition */
+        }
+        
+        .block.visible {
+          animation: appear 0.5s forwards; /* Trigger the appear animation */
+          opacity: 1;
+          transform: scale(1);
+        }
+        
+              </style>
+
 </head>
 
 <body>
-
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <header>
         <a href="#home">
             <img src="./assets/images/logo3.png" alt="logo image" loading="lazy">
@@ -31,52 +58,66 @@
             <a href="#services">services</a>
         </nav>
 
-        <button>
+        <button onclick="show()">
             <i class="fa fa-bars"></i>
         </button>
 
         <a href="#contact">contact me</a>
     </header>
 
-    <section class="home container" id="home">
+        <!-- ------------------- hamburger menu -------------- -->
+        <div class="ham-menu" id="panel" >
+            <button onclick="show()">
+                <i class="fa fa-x"></i>
+            </button>
+            <a href="#home">home</a>
+            <a href="#about">about</a>
+            <a href="#education">education</a>
+            <a href="#projects">projects</a>
+            <a href="#services">services</a>
+            <a href="#contact">contact me</a>
+        </div>
+    
 
-        <img src="./assets/images/profile.jpg" alt="profile image">
+    <section class="home container1" id="home">
 
-        <div class="intro">
-            <span>
+        <img src="./assets/images/profile.jpg" alt="profile image" class="block">
+
+        <div class="intro block">
+            <span class="block">
                 hello i am
             </span>
 
-            <h1><span class="span">abhilasha jadon</span></h1>
+            <h1 class="block"><span class="span">abhilasha jadon</span></h1>
 
-            <h2>i am a <span class="span2"> graphic designer</span></h2>
+            <h2 class="block">i am a <span id="element" class="span"></span></h2>
 
-            <p>
+            <p class="block">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt temporibus ducimus porro earum quis
                 nam repellendus accusamus non delectus id.
             </p>
 
             <div class="intro-btn">
-                <a href="">download cv</a>
-                <a href="">hire me</a>
+                <a href="" class="block">download cv</a>
+                <a href="#contact" class="block">hire me</a>
             </div>
         </div>
 
     </section>
 
-    <section class="about container" id="about">
+    <section class="about container1" id="about">
         <div class="detail">
 
 
-            <h1><span class="span">about me</span></h1>
-            <p>
+            <h1 class="block"><span class="span block">about me</span></h1>
+            <p class="block">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione asperiores illum magnam natus at
                 atque earum, optio molestiae perspiciatis debitis suscipit voluptas placeat voluptates dolorum
                 soluta facilis labore mollitia? Neque recusandae quas obcaecati tempore magni? Molestiae, veritatis?
                 Similique possimus ad doloribus eum recusandae inventore culpa.
             </p>
 
-            <div class="col-link">
+            <div class="col-link block">
                 <a href=""><i class="fa-brands fa-instagram"></i>instagram</a>
                 <a href=""><i class="fa-brands fa-facebook"></i>facebook</a>
                 <a href=""><i class="fa-brands fa-linkedin"></i>linkedin</a>
@@ -84,19 +125,237 @@
             </div>
         </div>
 
-        <img src="./assets/images/profile.jpg" alt="about image" loading="lazy">
+        <img src="./assets/images/profile.jpg" alt="about image" loading="lazy" class="block">
 
 
     </section>
 
-    <section class="services container" id="services">
-        <h1><span class="span">services</span></h1>
-        <p>these are the services that i offer Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio
+    <!-- -------------------- education section -------------------------- -->
+    <section class="education" id="education">
+        <h1 class="block"><span class="span block">my education</span></h1>
+        <p class="block">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit assumenda distinctio dolore alias beatae voluptatum ea quibusdam ullam perspiciatis cupiditate.
+        </p>
+
+        <div class="timeline">
+            <div class="container left block">
+              <div class="content">
+                <h2>2018</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, consectetur deleniti optio sint tempore, expedita assumenda cumque odio dolorum voluptatum accusantium molestias architecto? Expedita dicta veritatis, soluta reiciendis inventore quaerat vitae eum, animi repellendus perspiciatis praesentium quis nobis cumque culpa hic sapiente consequuntur eveniet exercitationem.</p>
+              </div>
+            </div>
+            <div class="container right block">
+              <div class="content">
+                <h2>2019</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quod veniam, quo officiis nostrum reprehenderit enim illo ea explicabo saepe neque. Neque, quam?</p>
+              </div>
+            </div>
+            <div class="container left block">
+                <div class="content">
+                  <h2>2020</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, consectetur deleniti optio sint tempore, expedita assumenda</p>
+                </div>
+              </div>
+              <div class="container right block">
+                <div class="content">
+                  <h2>2021</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit placeat laudantium, officiis amet suscipit quia id ullam tempora sint cumque accusamus sit deleniti dolorum, alias omnis perspiciatis debitis architecto libero culpa aliquid ut rerum. Aliquam, illum incidunt soluta, cupiditate ad veniam voluptates qui id excepturi omnis, quam labore expedita reprehenderit est deserunt eveniet adipisci et odit.</p>
+                </div>
+              </div>
+          </div> 
+
+
+        </section>
+        
+    
+    <section class="projects container1" id="projects">
+        <h1 class="block"><span class="span">my projects</span></h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum dolorem quis officiis numquam et eveniet, id repudiandae quaerat sit nisi.</p>
+
+        <div class="project-box">
+
+            <div class="project-info">
+                <h2 class="block"><span class="span2">poster designing</span></h2>
+                <p class="block">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet quisquam earum officiis dolores fuga, accusamus reiciendis ipsam odio reprehenderit repellat? Modi, quo doloremque tempora ipsam velit eveniet nobis distinctio fugiat accusamus repellat obcaecati fugit! Laboriosam dolorem dolores odit dolor harum necessitatibus dolorum saepe blanditiis maxime.
+                </p>
+            </div>
+            <div class="project-slider block">
+                <img src="./assets/images/projects/Screenshot (102).png" alt="" class="block">
+
+                <img src="./assets/images/projects/Screenshot (102).png" alt="" class="block">
+
+                <img src="./assets/images/projects/Screenshot (102).png" alt="" class="block">
+
+                <img src="./assets/images/projects/Screenshot (102).png" alt="" class="block">
+
+                <img src="./assets/images/projects/Screenshot (102).png" alt="" class="block">
+            </div>
+        </div>
+
+        <div class="project-box">
+
+            <div class="project-info">
+                <h2 class="block"><span class="span2"> banner designing</span></h2>
+                <p class="block">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet quisquam earum officiis dolores fuga, accusamus reiciendis ipsam odio reprehenderit repellat? Modi, quo doloremque tempora ipsam velit eveniet nobis distinctio fugiat accusamus repellat obcaecati fugit! Laboriosam dolorem dolores odit dolor harum necessitatibus dolorum saepe blanditiis maxime.
+                </p>
+            </div>
+            <div class="project-slider block">
+                
+            </div>
+        </div>
+
+
+        <div class="project-box">
+
+            <div class="project-info">
+                <h2 class="block"><span class="span2">newspaper advertisements</span></h2>
+                <p class="
+                block">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet quisquam earum officiis dolores fuga, accusamus reiciendis ipsam odio reprehenderit repellat? Modi, quo doloremque tempora ipsam velit eveniet nobis distinctio fugiat accusamus repellat obcaecati fugit! Laboriosam dolorem dolores odit dolor harum necessitatibus dolorum saepe blanditiis maxime.
+                </p>
+            </div>
+            <div class="project-slider">
+                
+            </div>
+        </div>
+
+
+        <div class="project-box">
+
+            <div class="project-info">
+                <h2 class="block"><span class="span2">Social Media Post</span></h2>
+                <p class="block">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet quisquam earum officiis dolores fuga, accusamus reiciendis ipsam odio reprehenderit repellat? Modi, quo doloremque tempora ipsam velit eveniet nobis distinctio fugiat accusamus repellat obcaecati fugit! Laboriosam dolorem dolores odit dolor harum necessitatibus dolorum saepe blanditiis maxime.
+                </p>
+            </div>
+            <div class="project-slider block">
+                
+            </div>
+        </div>
+
+
+
+        <div class="project-box">
+
+            <div class="project-info">
+                <h2 class="block"><span class="span2">digital painting</span></h2>
+                <p class="block">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet quisquam earum officiis dolores fuga, accusamus reiciendis ipsam odio reprehenderit repellat? Modi, quo doloremque tempora ipsam velit eveniet nobis distinctio fugiat accusamus repellat obcaecati fugit! Laboriosam dolorem dolores odit dolor harum necessitatibus dolorum saepe blanditiis maxime.
+                </p>
+            </div>
+            <div class="project-slider block">
+                
+            </div>
+        </div>
+        <div class="project-box">
+
+            <div class="project-info">
+                <h2 class="block"><span class="span2">Wall and Table celendar</span></h2>
+                <p class="block">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet quisquam earum officiis dolores fuga, accusamus reiciendis ipsam odio reprehenderit repellat? Modi, quo doloremque tempora ipsam velit eveniet nobis distinctio fugiat accusamus repellat obcaecati fugit! Laboriosam dolorem dolores odit dolor harum necessitatibus dolorum saepe blanditiis maxime.
+                </p>
+            </div>
+            <div class="project-slider block">
+                
+            </div>
+        </div>
+        <div class="project-box">
+
+            <div class="project-info">
+                <h2 class="block"><span class="span2">Handmade paintings</span></h2>
+                <p class="block"> 
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet quisquam earum officiis dolores fuga, accusamus reiciendis ipsam odio reprehenderit repellat? Modi, quo doloremque tempora ipsam velit eveniet nobis distinctio fugiat accusamus repellat obcaecati fugit! Laboriosam dolorem dolores odit dolor harum necessitatibus dolorum saepe blanditiis maxime.
+                </p>
+            </div>
+            <div class="project-slider block">
+                
+            </div>
+        </div>
+        <div class="project-box">
+
+            <div class="project-info">
+                <h2 class="block"><span class="span2">black and white portraits</span></h2>
+                <p class="block">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet quisquam earum officiis dolores fuga, accusamus reiciendis ipsam odio reprehenderit repellat? Modi, quo doloremque tempora ipsam velit eveniet nobis distinctio fugiat accusamus repellat obcaecati fugit! Laboriosam dolorem dolores odit dolor harum necessitatibus dolorum saepe blanditiis maxime.
+                </p>
+            </div>
+            <div class="project-slider block">
+                
+            </div>
+        </div>
+        <div class="project-box">
+
+            <div class="project-info">
+                <h2 class="block"><span class="span2">colour portraits</span></h2>
+                <p class="block">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet quisquam earum officiis dolores fuga, accusamus reiciendis ipsam odio reprehenderit repellat? Modi, quo doloremque tempora ipsam velit eveniet nobis distinctio fugiat accusamus repellat obcaecati fugit! Laboriosam dolorem dolores odit dolor harum necessitatibus dolorum saepe blanditiis maxime.
+                </p>
+            </div>
+            <div class="project-slider block">
+                
+            </div>
+        </div>
+        <div class="project-box">
+
+            <div class="project-info">
+                <h2 class="block"><span class="span2">nature photography</span></h2>
+                <p class="block">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet quisquam earum officiis dolores fuga, accusamus reiciendis ipsam odio reprehenderit repellat? Modi, quo doloremque tempora ipsam velit eveniet nobis distinctio fugiat accusamus repellat obcaecati fugit! Laboriosam dolorem dolores odit dolor harum necessitatibus dolorum saepe blanditiis maxime.
+                </p>
+            </div>
+            <div class="project-slider block">
+                
+            </div>
+        </div>
+        <div class="project-box">
+
+            <div class="project-info">
+                <h2 class="block"><span class="span2">creative photography</span></h2>
+                <p class="block"> 
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet quisquam earum officiis dolores fuga, accusamus reiciendis ipsam odio reprehenderit repellat? Modi, quo doloremque tempora ipsam velit eveniet nobis distinctio fugiat accusamus repellat obcaecati fugit! Laboriosam dolorem dolores odit dolor harum necessitatibus dolorum saepe blanditiis maxime.
+                </p>
+            </div>
+            <div class="project-slider block">
+                
+            </div>
+        </div>
+        <div class="project-box">
+
+            <div class="project-info">
+                <h2 class="block"><span class="span2">logo design </span></h2>
+                <p class="block">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet quisquam earum officiis dolores fuga, accusamus reiciendis ipsam odio reprehenderit repellat? Modi, quo doloremque tempora ipsam velit eveniet nobis distinctio fugiat accusamus repellat obcaecati fugit! Laboriosam dolorem dolores odit dolor harum necessitatibus dolorum saepe blanditiis maxime.
+                </p>
+            </div>
+            <div class="project-slider block">
+                
+            </div>
+        </div>
+        <div class="project-box">
+
+            <div class="project-info">
+                <h2 class="block"><span class="span2">typography illustration </span></h2>
+                <p class="block">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet quisquam earum officiis dolores fuga, accusamus reiciendis ipsam odio reprehenderit repellat? Modi, quo doloremque tempora ipsam velit eveniet nobis distinctio fugiat accusamus repellat obcaecati fugit! Laboriosam dolorem dolores odit dolor harum necessitatibus dolorum saepe blanditiis maxime.
+                </p>
+            </div>
+            <div class="project-slider">
+                <img src="./assets/images/projects/Screenshot (102).png" alt="">
+            </div>
+        </div>
+
+    </section>
+
+    <section class="services container1" id="services">
+        <h1 class="block"><span class="span block">services</span></h1>
+        <p class="block">these are the services that i offer Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio
             veritatis dolorem repellat recusandae similique deleniti omnis reiciendis, animi adipisci rerum!</p>
 
         <div class="service-section">
 
-            <div class="box">
+            <div class="box block">
                 <h2><span class="span2">graphic designer</span></h2>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora ducimus nobis sed harum distinctio
@@ -104,7 +363,7 @@
                 </p>
                 <img src="./assets/images/IMG-20240801-WA0006.jpg" alt="service">
             </div>
-            <div class="box">
+            <div class="box block">
                 <h2><span class="span2">image manipulation</span></h2>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora ducimus nobis sed harum distinctio
@@ -112,7 +371,7 @@
                 </p>
                 <img src="./assets/images/IMG-20240801-WA0006.jpg" alt="service">
             </div>
-            <div class="box">
+            <div class="box block">
                 <h2><span class="span2">photo editing</span></h2>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora ducimus nobis sed harum distinctio
@@ -120,7 +379,7 @@
                 </p>
                 <img src="./assets/images/IMG-20240801-WA0006.jpg" alt="service">
             </div>
-            <div class="box">
+            <div class="box block">
                 <h2><span class="span2">advertisements</span></h2>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora ducimus nobis sed harum distinctio
@@ -128,7 +387,7 @@
                 </p>
                 <img src="./assets/images/IMG-20240801-WA0006.jpg" alt="service">
             </div>
-            <div class="box">
+            <div class="box block">
                 <h2><span class="span2">logo design</span></h2>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora ducimus nobis sed harum distinctio
@@ -136,7 +395,7 @@
                 </p>
                 <img src="./assets/images/IMG-20240801-WA0006.jpg" alt="service">
             </div>
-            <div class="box">
+            <div class="box block">
                 <h2><span class="span2">poster design</span></h2>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora ducimus nobis sed harum distinctio
@@ -148,32 +407,32 @@
         </div>
     </section>
 
-    <section class="contact container" id="contact">
-        <h1><span class="span">contact me</span></h1>
+    <section class="contact container1" id="contact">
+        <h1 class="block"><span class="span block">contact me</span></h1>
 
         <form action="">
-            <label for="n"><span class="span">your name</span></label>
-            <input type="text" placeholder="enter your name" name="name" id="n">
+            <label for="n"><span class="span block">your name</span></label>
+            <input type="text" placeholder="enter your name" name="name" id="n" required autocomplete="off" class="block">
 
-            <label for="e"><span class="span">your email</span></label>
-            <input type="email" placeholder="enter your email" name="email" id="e">
+            <label for="e"><span class="span block">your email</span></label>
+            <input type="email" placeholder="enter your email" name="email" id="e" required autocomplete="off" class="block">
 
-            <label for="p"><span class="span">phone no.</span></label>
-            <input type="number" placeholder="enter your ph. no." name="phone no." id="p">
+            <label for="p"><span class="span block">phone no.</span></label>
+            <input type="number" placeholder="enter your ph. no." name="phone no." id="p" required autocomplete="off" class="block">
 
-            <label for="t"><span class="span">your message</span></label>
-            <textarea name="message" placeholder="write your message here" id="t"></textarea>
+            <label for="t"><span class="span block">your message</span></label>
+            <textarea name="message" placeholder="write your message here" id="t" required autocomplete="off" class="block"></textarea>
 
-            <input type="submit" value="send">
+            <input type="submit" value="send" class="block">
 
         </form>
     </section>
 
-    <footer class="container">
-        <h1><span class="span2">thanks for visiting</span></h1>
+    <footer class="container1">
+        <h1 class="block"><span class="span2 block">thanks for visiting</span></h1>
 
         <ul>
-            <li>
+            <li class="block">
                 <img src="./assets/images/IMG-20241022-WA0000.jpg" alt="">
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt nobis perferendis, molestias quam
@@ -181,7 +440,7 @@
                 </p>
             </li>
 
-            <li>
+            <li class="block">
                 <h2><span class="span">useful links</span></h2>
                 <ol>
                     <li><a href="#home"> <i class="fa fa-arrow-right"></i> home</a></li>
@@ -193,7 +452,7 @@
                 </ol>
             </li>
 
-            <li>
+            <li class="block">
                 <h2><span class="span">find me here</span></h2>
 
                 <ol>
@@ -204,7 +463,7 @@
                 </ol>
             </li>
 
-            <li>
+            <li class="block">
                 <h2><span class="span">contact</span> </h2>
 
                 <ol>
@@ -215,11 +474,42 @@
             </li>
         </ul>
 
-        <p>
+        <p class="block">
             <span class="span">copyright <i class="fa fa-copyright span2"></i> all rights reserved </span>
         </p>
     </footer>
+    <script src="./script.js"></script>
 
+
+
+
+
+
+
+    <script async>
+        document.addEventListener("DOMContentLoaded", function () {
+          const blocks = document.querySelectorAll('.block');
+        
+          const observerOptions = {
+            threshold: 0.1 // Adjust as needed to control when the animation starts
+          };
+        
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible'); // Add 'visible' class when in view
+              } else {
+                entry.target.classList.remove('visible'); // Remove 'visible' class when out of view
+              }
+            });
+          }, observerOptions);
+        
+          blocks.forEach(block => {
+            observer.observe(block); // Keep observing each block
+          });
+        });
+        
+          </script>
 </body>
 
 </html>

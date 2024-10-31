@@ -9,6 +9,7 @@
     font-style: normal;
     color: white;
     scroll-behavior: smooth;
+    /* border: 2px solid white; */
 }
 
 :root{
@@ -32,7 +33,7 @@ body{
     background-color: black;
 }
 
-.container{
+.container1{
     max-width: 1925px;
     margin: 0 auto;
     /* min-height: 60rem; */
@@ -122,6 +123,7 @@ header{
         font-size: var(--body);
         color: white;
         display: none;
+        cursor: pointer;
     }
 
     >a:last-child{
@@ -140,6 +142,51 @@ header{
             background: var(--background);
         }
     }
+}
+
+.ham-menu{
+    position: fixed;
+    background: var(--background);
+    top: 0;
+    right: -100%;
+    z-index: 1001;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all .2s ease-in-out;
+    padding: 2rem 0 0 0;
+
+    >button{
+        align-self: end;
+        background-color: transparent;
+        border: none;
+        font-size: var(--body);
+        color: black;
+        margin: .6em 1em;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    >a{
+        text-align: center;
+        padding: 1.4em 0;
+        font-size: var(--body);
+        color: var(--black);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.486);
+        text-transform: capitalize;
+        transition: all .2s ease-in-out;
+        font-weight: 700;
+
+        &:hover{
+            background-color: black;
+
+        }
+
+    }
+}
+
+.ham-menu.active{
+    right: 0;
 }
 
 .home{
@@ -273,6 +320,254 @@ header{
 
 }
 
+/* -------------------------- education sections of the web page -------------------------  */
+.education{
+    min-height: 60rem;
+    max-width: 1925px;
+    margin: 0 auto;
+    padding: 6rem 2%;
+
+    >h1{
+        font-size: var(--h1);
+        text-transform: uppercase;
+    }
+    >p{
+        font-size: var(--body);
+        margin: 2rem 0;
+    }
+
+
+    /* -------------------- timeline section ------------------- */
+    /* The actual timeline (the vertical ruler) */
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 4em auto;
+  }
+  
+  /* The actual timeline (the vertical ruler) */
+  .timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background: var(--background);
+    border-radius: 20rem;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+  }
+  
+  /* Container around content */
+  .container {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+    margin: 4rem 0;
+  }
+  
+  /* The circles on the timeline */
+  .container::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -17px;
+    background: var(--background);
+    border: 4px solid #000000;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  
+  /* Place the container to the left */
+  .left {
+    left: 0;
+  }
+  
+  /* Place the container to the right */
+  .right {
+    left: 50%;
+  }
+  
+  /* Add arrows to the left container (pointing right) */
+  .left::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid white;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent white;
+  }
+  
+  /* Add arrows to the right container (pointing left) */
+  .right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+  }
+  
+  /* Fix the circle for containers on the right side */
+  .right::after {
+    left: -16px;
+  }
+  
+  /* The actual content */
+  .content {
+    padding: 20px 30px;
+    /* background-color: white; */
+    background-color: #000000;
+    color: white;
+    position: relative;
+    border-radius: 6px;
+
+    >h2{
+        font-size: var(--body);
+    }
+    >p{
+        font-size: var(--small);
+    }
+  }
+
+  .content::after{
+    content: " ";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    padding: 3px;
+    z-index: -1;
+    border-radius: 6px;
+    background: var(--background);
+
+  }
+
+  .content::before{
+    content: " ";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    padding: 3px;
+    z-index: -1;
+    border-radius: 6px;
+    background: var(--background);
+    filter: blur(6px);
+  }
+  
+  /* Media queries - Responsive timeline on screens less than 600px wide */
+  @media screen and (max-width: 600px) {
+  /* Place the timelime to the left */
+    .timeline::after {
+      left: 31px;
+    }
+  
+  /* Full-width containers */
+    .container {
+      width: 100%;
+      padding-left: 70px;
+      padding-right: 25px;
+    }
+  
+  /* Make sure that all arrows are pointing leftwards */
+    .container::before {
+      left: 60px;
+      border: medium solid white;
+      border-width: 10px 10px 10px 0;
+      border-color: transparent white transparent transparent;
+    }
+  
+  /* Make sure all circles are at the same spot */
+    .left::after, .right::after {
+      left: 15px;
+    }
+  
+  /* Make all right containers behave like the left ones */
+    .right {
+      left: 0%;
+    }
+  }
+  
+}
+
+
+
+.projects{
+    >h1{
+        font-size: var(--h1);
+        text-transform: uppercase;
+    }
+
+    >p{
+        font-size: var(--body);
+    }
+
+    .project-box{
+        margin: 4em 0;
+        display: flex;
+        gap: 1rem;
+
+
+        >.project-info{
+            width: 40%;
+            min-width: 20rem;
+            align-self: center;
+            >h2{
+                font-size: var(--h3);
+                text-transform: capitalize;
+            }
+            >p{
+                font-size: var(--small);
+                margin: 2em 0;
+            }
+        }
+
+        >.project-slider{
+            width: 60%;
+            min-width: 30rem;
+            height: 50rem;
+            position: relative;
+            background-color: #000000;
+            border: 2px solid white;
+            border-radius: 6px;
+            display: flex;
+            flex-shrink: 0;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scrollbar-width:thin;
+            scroll-snap-type: x mandatory;
+
+
+            gap: 4rem;
+
+            >img{
+                width: 35rem;
+                object-fit: cover;
+                height: 100%;
+                scroll-snap-align: center;
+
+            }
+        }
+
+    }
+}
+
+
+
 .services{
     padding: 6rem 2%;
     >h1{
@@ -325,7 +620,8 @@ header{
     }
 
     form{
-        width: 60%;
+        width: 70%;
+        max-width: 70rem;
         min-width: 32rem;
         /* border: 2px solid white; */
         padding: 0 3rem;
@@ -347,6 +643,7 @@ header{
             outline: none;
             border: none;
             margin-bottom: 1.5rem;
+            font-weight: 600;
 
 
             &::placeholder{
@@ -381,12 +678,18 @@ header{
             padding: 1rem;
             outline: none;
             border: none;
-            color: black;
+            color: rgba(0, 0, 0, 0.918);
+            font-weight: 600;
 
             &::placeholder{
-                color: black;
+                color: rgba(0, 0, 0, 0.712);
                 font-size: var(--small);
             }
+        }
+
+        input:focus,textarea:focus{
+            background: white;
+            box-shadow: 0 0 6px white;
         }
 
 
@@ -549,7 +852,26 @@ footer{
             width: 18rem;
         }
     }
+
+    .projects{
+        .project-box{
+            flex-direction: column;
+
+            >.project-info{
+                width: 100%;
+            }
+
+            >.project-slider{
+                width: 100%;
+                height: 40rem;
+
+    }
+
+
 }
+}}
+
+
 
 @media screen and (max-width:425px) {
 
